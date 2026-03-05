@@ -1,0 +1,143 @@
+.footer {
+  background: #f3f4f6;
+  padding: 60px 0 0;
+  margin-top: 0;
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+  padding: 0 64px 48px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 0.1em;
+  color: #111827;
+}
+
+.logoSub {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #6b7280;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 160px;
+}
+
+.colHeading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #374151;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.colList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.colLink {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: color var(--transition);
+}
+.colLink:hover { color: #111827; }
+
+.subText {
+  font-size: 12px;
+  color: #9ca3af;
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+.emailRow {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #9ca3af;
+  padding-bottom: 4px;
+  gap: 8px;
+}
+
+.emailInput {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #374151;
+  flex: 1;
+  outline: none;
+}
+.emailInput::placeholder { color: #9ca3af; }
+
+.emailBtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #374151;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition);
+}
+.emailBtn:hover { color: var(--c-accent); }
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-left: auto;
+  align-self: flex-start;
+}
+
+.socialBtn {
+  background: none;
+  border: 1px solid rgba(0,0,0,0.12);
+  color: #6b7280;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 13px;
+  transition: color var(--transition), border-color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.socialBtn:hover { color: #111; border-color: #111; }
+
+.bottom {
+  padding: 20px 64px;
+  text-align: center;
+}
+
+.bottom p {
+  font-size: 11px;
+  color: #9ca3af;
+  letter-spacing: 0.04em;
+}
