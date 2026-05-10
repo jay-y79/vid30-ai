@@ -28,20 +28,20 @@ export function Hero() {
       {/* Stats left */}
       <div class={`${styles.statsLeft} ${visible ? styles.visible : ''}`}>
         <div class={styles.statBlock}>
-          <span class={styles.statNumber}>+ 30</span>
-          <span class={styles.statLabel}>Prompt Engineers</span>
+          <span class={styles.statNumber}>30</span>
+          <span class={styles.statLabel}>Academy Awards</span>
         </div>
         <div class={styles.divider} />
         <div class={styles.statBlock}>
-          <span class={styles.statNumber}>+ 300</span>
-          <span class={styles.statLabel}>GenAI movies</span>
+          <span class={styles.statNumber}>122</span>
+          <span class={styles.statLabel}>Academy Award<br/>Nominations</span>
         </div>
       </div>
 
       {/* Content right */}
       <div class={`${styles.content} ${visible ? styles.visible : ''}`}>
         <p class={styles.genre}>{FEATURED.genre}</p>
-        <h1 class={styles.title}>Vid30<br/>MOVIES</h1>
+        <h1 class={styles.title}>VIDAA<br/>MOVIES</h1>
         <p class={styles.description}>{FEATURED.description}</p>
 
         <div class={styles.meta}>

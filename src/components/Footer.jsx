@@ -10,7 +10,7 @@ export function Footer() {
     <footer class={styles.footer}>
       <div class={styles.inner}>
         <div class={styles.brand}>
-          <span class={styles.logo}>Vid30</span>
+          <span class={styles.logo}>VIDAA</span>
           <span class={styles.logoSub}>STREAMING</span>
         </div>
 
@@ -46,7 +46,7 @@ export function Footer() {
       </div>
 
       <div class={styles.bottom}>
-        <p>© 2025 Vid30 TV — Entertainment Inc. Tous droits réservés.</p>
+        <p>© 2024 VIDAA Streaming — Hisense Entertainment Inc. Tous droits réservés.</p>
       </div>
     </footer>
   )

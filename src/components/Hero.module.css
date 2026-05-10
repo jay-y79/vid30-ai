@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   width: 100%;
+  min-height: clamp(560px, 63vh, 760px);
   height: 680px;
   display: flex;
   align-items: center;
@@ -86,7 +87,7 @@
   font-weight: 400;
   letter-spacing: 0.08em;
   color: var(--c-muted);
-  text-transform: capitalize;
+  text-transform: uppercase;
   padding-left: 4px;
 }
 
@@ -102,7 +103,7 @@
   position: relative;
   z-index: 2;
   margin-left: auto;
-  padding-right: 120px;
+  padding-right: var(--safe-x);
   padding-top: 72px;
   max-width: 560px;
   opacity: 0;

@@ -1,5 +1,5 @@
 /* ============================================
-   Vid30 STREAMING TV — Global CSS
+   VIDAA STREAMING — Global CSS
    Target: Hisense VIDAA OS (1920x1080 TV)
    ============================================ */
 
@@ -10,7 +10,7 @@
 }
 
 :root {
-  --c-bg: #080a0f;
+   --c-bg: #080a0f;
   --c-surface: #0e1117;
   --c-surface2: #141820;
   --c-border: rgba(255,255,255,0.07);
@@ -34,8 +34,8 @@
 }
 
 html, body {
-  width: 1920px;
-  min-height: 1080px;
+ width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
   background: var(--c-bg);
   color: var(--c-white);
@@ -49,7 +49,7 @@ html, body {
 
 #app {
   width: 100%;
-  min-height: 1080px;
+  min-height: 100vh;
 }
 
 /* ─── Scrollbar ─── */
@@ -95,4 +95,15 @@ html, body {
 @keyframes scanline {
   0%   { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
+}
+
+:root {
+  --safe-x: clamp(32px, 3.5vw, 72px);
+  --safe-y: clamp(24px, 4vh, 72px);
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }

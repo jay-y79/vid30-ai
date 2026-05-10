@@ -20,7 +20,7 @@ function MovieCard({ movie, focused, onFocus }) {
               <polygon points="5,3 19,12 5,21"/>
             </svg>
           </button>
-          {/* <button class={styles.addBtn}>+</button> */}
+          <button class={styles.addBtn}>+</button>
         </div>
         {movie.badge && (
           <span class={styles.badge}>{movie.badge}</span>
@@ -28,7 +28,7 @@ function MovieCard({ movie, focused, onFocus }) {
       </div>
       <div class={styles.cardInfo}>
         <p class={styles.cardTitle}>{movie.title}</p>
-        <p class={styles.cardMeta}>{movie.prompter}</p>
+        <p class={styles.cardMeta}>{movie.year}</p>
       </div>
     </div>
   )

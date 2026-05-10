@@ -3,11 +3,12 @@
   top: 0;
   left: 0;
   right: 0;
+  padding: 0 var(--safe-x);
   z-index: 100;
   display: flex;
   align-items: center;
   gap: 48px;
-  padding: 0 64px;
+  /* padding: 0 64px; */
   height: 72px;
   background: linear-gradient(to bottom, rgba(8,10,15,0.95) 0%, transparent 100%);
   backdrop-filter: blur(2px);
@@ -22,30 +23,22 @@
 
 .logoText {
   font-family: var(--font-display);
-  text-transform: uppercase !important;
   font-size: 28px;
   letter-spacing: 0.1em;
   color: var(--c-white);
 }
 
-/* .logoDot {
+.logoDot {
   color: var(--c-accent);
   font-size: 20px;
-} */
-.logoNum {
-  font-family: var(--font-display);
-    text-transform: uppercase !important;
-  font-size: 28px;
-  letter-spacing: 0.1em;
-  color: var(--c-accent);
 }
 
-/* .logoSub {
+.logoSub {
   font-family: var(--font-display);
   font-size: 14px;
   letter-spacing: 0.35em;
   color: var(--c-accent);
-} */
+}
 
 .tabs {
   display: flex;
