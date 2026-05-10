@@ -27,6 +27,7 @@ export function Navbar({ nightMode, onToggleNight }) {
       </ul>
 
       <div class={styles.controls}>
+        {/* 
         <button class={styles.iconBtn} title="Rechercher">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -41,7 +42,7 @@ export function Navbar({ nightMode, onToggleNight }) {
           <span class={`${styles.nightStatus} ${nightMode ? styles.nightStatusOn : ''}`}>
             {nightMode ? 'ON' : 'OFF'}
           </span>
-        </button>
+        </button> */}
 
         <div class={styles.socials}>
           {['f', 't', 'y'].map(s => (
