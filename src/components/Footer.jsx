@@ -2,7 +2,7 @@ import styles from './Footer.module.css'
 
 const links = {
   Corporate: ['NYSE: LGF-A', 'NYSE: LGF-B', "CONDITIONS D'UTILISATION", 'CONFIDENTIALITÉ'],
-  Sitemap: ['FILMS', 'SÉRIES TV', 'À LA MAISON', 'CORPORATE'],
+  Sitemap: ['Vid30 Streaming', 'Vid30 Marketplace', 'Vid30 Studio', 'Landingpage'],
 }
 
 export function Footer() {
@@ -10,7 +10,7 @@ export function Footer() {
     <footer class={styles.footer}>
       <div class={styles.inner}>
         <div class={styles.brand}>
-          <span class={styles.logo}>VIDAA</span>
+          <span class={styles.logo}>VID30</span>
           <span class={styles.logoSub}>STREAMING</span>
         </div>
 
@@ -46,7 +46,7 @@ export function Footer() {
       </div>
 
       <div class={styles.bottom}>
-        <p>© 2024 VIDAA Streaming — Hisense Entertainment Inc. Tous droits réservés.</p>
+        <p>© 2026 VID30 Streaming — On VIDAA OS. Hisense Smart TV. Tous droits réservés.</p>
       </div>
     </footer>
   )

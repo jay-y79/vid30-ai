@@ -20,7 +20,7 @@ function MovieCard({ movie, focused, onFocus }) {
               <polygon points="5,3 19,12 5,21"/>
             </svg>
           </button>
-          <button class={styles.addBtn}>+</button>
+          {/* <button class={styles.addBtn}>+</button> */}
         </div>
         {movie.badge && (
           <span class={styles.badge}>{movie.badge}</span>
@@ -28,7 +28,7 @@ function MovieCard({ movie, focused, onFocus }) {
       </div>
       <div class={styles.cardInfo}>
         <p class={styles.cardTitle}>{movie.title}</p>
-        <p class={styles.cardMeta}>{movie.year}</p>
+        <p class={styles.cardMeta}>{movie.prompteur}</p>
       </div>
     </div>
   )
@@ -65,12 +65,12 @@ export function MovieRow({ category, light }) {
         <div class={styles.label}>
           <h2 class={styles.labelTitle}>{category.label}</h2>
           <p class={styles.labelTagline}>{category.tagline}</p>
-          <button class={styles.browseBtn}>
+          {/* <button class={styles.browseBtn}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/>
             </svg>
             VOIR PLUS
-          </button>
+          </button> */}
         </div>
 
         {/* Cards + scroll buttons */}

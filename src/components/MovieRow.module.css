@@ -227,7 +227,7 @@
 }
 
 .cardTitle {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: #111827;
   white-space: nowrap;
@@ -238,9 +238,10 @@
 .sectionLight .cardTitle { color: var(--c-white); }
 
 .cardMeta {
-  font-size: 11px;
-  color: #9ca3af;
+  font-size: 13px;
+  color: #750137;
   margin-top: 2px;
+  font-weight: bold;
 }
 
 /* ── Side dots ── */

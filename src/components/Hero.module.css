@@ -87,7 +87,7 @@
   font-weight: 400;
   letter-spacing: 0.08em;
   color: var(--c-muted);
-  text-transform: uppercase;
+  text-transform: capitalize;
   padding-left: 4px;
 }
 
