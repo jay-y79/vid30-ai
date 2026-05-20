@@ -10,21 +10,21 @@
 }
 
 :root {
-   --c-bg: #080a0f;
-  --c-surface: #0e1117;
-  --c-surface2: #141820;
-  --c-border: rgba(255,255,255,0.07);
-  /* --c-accent: #e8b84b; */
-  --c-accent2: #FF00FF;
-  /* --c-accent2: #3d8bff; */
-  --c-accent: #750137;
+  --c-bg: #07040d;
+  --c-surface: #120b21;
+  --c-surface2: #1a1033;
+  --c-ink: #312f1d;
+  --c-border: rgba(245,242,255,0.12);
+  --c-accent: #ff1fbf;
+  --c-accent2: #00f5ff;
+  --c-lavender: #f5f2ff;
   --c-white: #ffffff;
-  --c-text: #c8cdd8;
-  --c-muted: #6b7280;
+  --c-text: #d8d1ea;
+  --c-muted: #9187aa;
   --c-danger: #ef4444;
 
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'Barlow', sans-serif;
 
   --radius: 6px;
   --radius-lg: 12px;
@@ -34,11 +34,14 @@
 }
 
 html, body {
- width: 100%;
+  width: 100%;
   min-height: 100%;
   overflow-x: hidden;
-  background: var(--c-bg);
-  color: var(--c-white);
+  background:
+    radial-gradient(circle at 14% 8%, rgba(255,31,191,0.2), transparent 30%),
+    radial-gradient(circle at 82% 4%, rgba(0,245,255,0.13), transparent 26%),
+    linear-gradient(135deg, #07040d 0%, #1a1033 48%, #120f10 100%);
+  color: var(--c-lavender);
   font-family: var(--font-body);
   font-size: 20px;
   line-height: 1.5;
@@ -59,11 +62,25 @@ html, body {
 
 /* ─── Focus (TV remote navigation) ─── */
 :focus { outline: none; }
-:focus-visible {
-  outline: 2px solid var(--c-accent);
-  outline-offset: 3px;
-  border-radius: var(--radius);
+[data-focusable] {
+  transition: transform var(--transition), box-shadow var(--transition), outline-color var(--transition), border-color var(--transition);
+  outline: none !important;
 }
+.tv-focused {
+  outline: 3px solid var(--c-accent2) !important;
+  outline-offset: 4px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 7px rgba(0,245,255,0.24), 0 0 28px rgba(0,245,255,0.46) !important;
+  transform: scale(1.05);
+  z-index: 100 !important;
+}
+/* Ensure focused inputs look fine */
+input[data-focusable].tv-focused {
+  background-color: var(--c-surface2) !important;
+  border-color: var(--c-accent2) !important;
+  transform: none;
+}
+
 
 /* ─── Utility ─── */
 .sr-only {
@@ -95,6 +112,11 @@ html, body {
 @keyframes scanline {
   0%   { transform: translateY(-100%); }
   100% { transform: translateY(100vh); }
+}
+
+@keyframes glowBreath {
+  0%, 100% { opacity: 0.58; transform: scale(1); }
+  50% { opacity: 0.86; transform: scale(1.035); }
 }
 
 :root {

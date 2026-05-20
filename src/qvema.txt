@@ -1,0 +1,10 @@
+Vid30 est une plateforme de streaming comme Netflix où les créateurs de contenus IA peuvent partager leurs œuvres, discuter et monétiser leurs savoir faire. 3 projet en 1. Plateforme de streaming sur Smart TV, Un marketplace pour les mises en relation et Vid30 Studio pour des création vidéos aider par l'IA.
+
+Je suis cinéphile avec des centaines de VHS et DVD. J'avais trouver une idée pour disrupter le marché du cinéma grâce au web3 (RWA), sans data-center, ... J'ai fait plusieurs pivot. Je suis résilient. Il m'est arrivé de porter des cartons dans un entrepôt en journée et de coder la nuit. J'ai une mentalité de flibustier, je reste borderline. Je profite des lacunes pour avoir des avantages stratégique, pas de barrière à l'entrée. Comme dit Peter Thiel "Competition are for losers". J'ai que des partenaires que ce soit Netflix, Prime, AWS, Google, ElevenLabs,... .
+
+Très peu pour l'instant mais je vise. Beta test sur le Smart TV de VIDAA OS de Hisense en attendant un déploiement global. Plus de 30 "prompteurs" qui veulent adhéré au projet. PArticipation au programme de Startup de Google avec qui je souhaite être partenaire et des Tokens.
+
+Open sources pour la plateforme de streaming avec de la publicité en pre-roll.
+Les créateurs de contenus IA pourront vendre des prompts/models/films sur la plateforme et on prendra 10%-20%. (exemple de publicité GenAI qui pourront être diffuser sur la plateforme) 
+Production de long métrage generé par IA et l'outil Vid30 Studio.
+

@@ -9,8 +9,7 @@ export function Navbar({ nightMode, onToggleNight }) {
     <nav class={styles.nav}>
       <div class={styles.logo}>
         <span class={styles.logoText}>VID30</span>
-        <span class={styles.logoDot}>•</span>
-        <span class={styles.logoSub}>Beta</span>
+        <span class={styles.logoMark}>AI CINEMA</span>
       </div>
 
       <ul class={styles.tabs}>
@@ -19,6 +18,8 @@ export function Navbar({ nightMode, onToggleNight }) {
             <button
               class={`${styles.tab} ${active === i ? styles.tabActive : ''}`}
               onClick={() => setActive(i)}
+              data-focusable
+              data-focus-id={`nav-tab-${i}`}
             >
               {tab}
               {active === i && <span class={styles.tabLine} />}
@@ -28,27 +29,24 @@ export function Navbar({ nightMode, onToggleNight }) {
       </ul>
 
       <div class={styles.controls}>
-
-        {/* 
-        <button class={styles.iconBtn} title="Rechercher">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
+        <button 
+          class={styles.creatorBtn}
+          data-focusable
+          data-focus-id="nav-creator"
+        >
+          Devenir prompteur
         </button>
 
-        <button class={styles.nightToggle} onClick={onToggleNight}>
-          <span class={styles.nightLabel}>NIGHT MODE</span>
-          <span class={`${styles.nightSwitch} ${nightMode ? styles.nightOn : ''}`}>
-            <span class={styles.nightKnob} />
-          </span>
-          <span class={`${styles.nightStatus} ${nightMode ? styles.nightStatusOn : ''}`}>
-            {nightMode ? 'ON' : 'OFF'}
-          </span>
-        </button> */}
-
         <div class={styles.socials}>
-          {['f', 't', 'y'].map(s => (
-            <button key={s} class={styles.socialBtn}>{s === 'f' ? 'F' : s === 't' ? '𝕏' : '▶'}</button>
+          {['F', 'X', '▶'].map((s, idx) => (
+            <button 
+              key={s} 
+              class={styles.socialBtn}
+              data-focusable
+              data-focus-id={`nav-social-${idx}`}
+            >
+              {s}
+            </button>
           ))}
         </div>
       </div>

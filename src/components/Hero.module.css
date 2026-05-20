@@ -1,8 +1,8 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: clamp(560px, 63vh, 760px);
-  height: 680px;
+  min-height: clamp(640px, 72vh, 820px);
+  height: 760px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -19,21 +19,35 @@
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
-  filter: brightness(0.45) saturate(0.8);
+  filter: brightness(0.5) saturate(1.18) contrast(1.08);
 }
 
 .backdropGrad {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(8,10,15,0.95) 0%, rgba(8,10,15,0.4) 50%, rgba(8,10,15,0.1) 100%),
-    linear-gradient(to top, rgba(8,10,15,1) 0%, transparent 40%);
+    linear-gradient(to right, rgba(7,4,13,0.98) 0%, rgba(26,16,51,0.56) 48%, rgba(7,4,13,0.28) 100%),
+    linear-gradient(to top, rgba(7,4,13,1) 0%, transparent 44%),
+    linear-gradient(135deg, rgba(255,31,191,0.2), transparent 42%, rgba(0,245,255,0.12));
 }
 
 .backdropVignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, transparent 30%, rgba(8,10,15,0.6) 100%);
+  background: radial-gradient(ellipse at 72% 48%, transparent 28%, rgba(7,4,13,0.72) 100%);
+}
+
+.lightBeam {
+  position: absolute;
+  right: 7%;
+  top: 14%;
+  width: 460px;
+  height: 460px;
+  background:
+    radial-gradient(circle, rgba(255,31,191,0.32), transparent 58%),
+    radial-gradient(circle at 68% 42%, rgba(0,245,255,0.18), transparent 46%);
+  filter: blur(12px);
+  animation: glowBreath 7s ease-in-out infinite;
 }
 
 .scanline {
@@ -43,8 +57,8 @@
     to bottom,
     transparent,
     transparent 3px,
-    rgba(0,0,0,0.03) 3px,
-    rgba(0,0,0,0.03) 4px
+    rgba(245,242,255,0.035) 3px,
+    rgba(245,242,255,0.035) 4px
   );
   pointer-events: none;
 }
@@ -55,12 +69,26 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 0 64px;
-  padding-top: 72px;
+  gap: 22px;
+  padding: 0 var(--safe-x);
+  padding-top: 94px;
   opacity: 0;
   transform: translateX(-30px);
   transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.kicker {
+  width: max-content;
+  max-width: 360px;
+  border: 1px solid rgba(0,245,255,0.26);
+  background: rgba(0,245,255,0.06);
+  color: var(--c-accent2);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: var(--radius);
 }
 
 .statsLeft.visible {
@@ -76,25 +104,27 @@
 
 .statNumber {
   font-family: var(--font-display);
-  font-size: 96px;
+  font-size: 104px;
+  font-weight: 700;
   line-height: 0.9;
-  color: var(--c-white);
-  letter-spacing: -0.02em;
+  color: var(--c-lavender);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 34px rgba(255,31,191,0.42);
 }
 
 .statLabel {
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.08em;
-  color: var(--c-muted);
-  text-transform: capitalize;
+  color: rgba(245,242,255,0.68);
+  text-transform: uppercase;
   padding-left: 4px;
 }
 
 .divider {
-  width: 48px;
+  width: 72px;
   height: 1px;
-  background: var(--c-accent);
+  background: linear-gradient(90deg, var(--c-accent), var(--c-accent2));
   margin: 8px 0;
 }
 
@@ -104,8 +134,8 @@
   z-index: 2;
   margin-left: auto;
   padding-right: var(--safe-x);
-  padding-top: 72px;
-  max-width: 560px;
+  padding-top: 96px;
+  max-width: 620px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 700ms ease 200ms, transform 700ms ease 200ms;
@@ -120,26 +150,29 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.25em;
-  color: var(--c-accent);
+  color: var(--c-accent2);
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 
 .title {
   font-family: var(--font-display);
-  font-size: 72px;
-  line-height: 0.92;
-  letter-spacing: 0.04em;
-  color: var(--c-white);
+  font-size: 84px;
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  color: var(--c-lavender);
+  text-transform: uppercase;
+  text-shadow: 0 0 32px rgba(255,31,191,0.24);
   margin-bottom: 20px;
 }
 
 .description {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
-  color: var(--c-text);
+  color: rgba(245,242,255,0.78);
   margin-bottom: 24px;
-  max-width: 420px;
+  max-width: 500px;
 }
 
 .meta {
@@ -150,8 +183,8 @@
 }
 
 .metaBadge {
-  background: rgba(232,184,75,0.15);
-  border: 1px solid rgba(232,184,75,0.4);
+  background: rgba(255,31,191,0.14);
+  border: 1px solid rgba(255,31,191,0.44);
   color: var(--c-accent);
   font-size: 10px;
   font-weight: 700;
@@ -175,8 +208,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--c-accent);
-  color: #080a0f;
+  background: linear-gradient(135deg, var(--c-accent), #ff65d4);
+  color: #16071a;
   border: none;
   font-family: var(--font-body);
   font-size: 13px;
@@ -185,17 +218,23 @@
   padding: 14px 32px;
   border-radius: var(--radius);
   cursor: pointer;
-  transition: background var(--transition), transform var(--transition);
+  text-transform: uppercase;
+  box-shadow: 0 16px 38px rgba(255,31,191,0.28);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
 }
-.btnPlay:hover { background: #f0c96a; transform: translateY(-1px); }
+.btnPlay:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 18px 44px rgba(255,31,191,0.38);
+}
 
 .btnSecondary {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255,255,255,0.07);
-  color: var(--c-white);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(245,242,255,0.05);
+  color: var(--c-lavender);
+  border: 1px solid rgba(0,245,255,0.3);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
@@ -205,18 +244,22 @@
   cursor: pointer;
   transition: background var(--transition);
 }
-.btnSecondary:hover { background: rgba(255,255,255,0.12); }
+.btnSecondary:hover {
+  background: rgba(0,245,255,0.1);
+  color: var(--c-accent2);
+}
 
 /* ── Trailer Card ── */
 .trailerCard {
   display: flex;
   align-items: center;
   gap: 16px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(245,242,255,0.055);
   border: 1px solid var(--c-border);
   border-radius: var(--radius-lg);
   padding: 12px 16px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 54px rgba(0,0,0,0.24);
 }
 
 .trailerThumb {
@@ -253,7 +296,7 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: var(--c-accent);
+  color: var(--c-accent2);
 }
 
 .trailerDur {
@@ -263,7 +306,7 @@
 
 .trailerTitle {
   font-size: 13px;
-  color: var(--c-white);
+  color: var(--c-lavender);
   font-weight: 500;
 }
 

@@ -1,12 +1,15 @@
 .section {
   position: relative;
-  background: var(--c-white);
-  padding: 0 0 40px;
+  background:
+    linear-gradient(180deg, var(--c-lavender) 0%, #e9e2f7 100%);
+  padding: 0 0 48px;
   overflow: hidden;
 }
 
 .sectionLight {
-  background: #0e1117;
+  background:
+    radial-gradient(circle at 7% 12%, rgba(255,31,191,0.16), transparent 28%),
+    linear-gradient(135deg, #0b0614 0%, #1a1033 58%, #120f10 100%);
 }
 
 .sectionLight .labelTitle { color: var(--c-white); }
@@ -17,13 +20,13 @@
 .sectionLight .tabActive { color: var(--c-white); }
 .sectionLight .navArrow { color: var(--c-muted); }
 .sectionLight .navArrow:hover { color: var(--c-white); }
-.sectionLight .tabBar { border-bottom-color: rgba(255,255,255,0.07); }
+.sectionLight .tabBar { border-bottom-color: rgba(245,242,255,0.1); }
 
 /* ── Tab Bar ── */
 .tabBar {
   display: flex;
   gap: 0;
-  padding: 0 64px;
+  padding: 0 var(--safe-x);
   border-bottom: 1px solid rgba(0,0,0,0.08);
   margin-bottom: 0;
 }
@@ -34,8 +37,9 @@
   border: none;
   font-family: var(--font-body);
   font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: #9ca3af;
   padding: 18px 20px;
   cursor: pointer;
@@ -43,7 +47,7 @@
 }
 
 .tabActive {
-  color: #111827;
+  color: #1a1033;
   font-weight: 700;
 }
 
@@ -53,35 +57,44 @@
   left: 20px;
   right: 20px;
   height: 2px;
-  background: #111827;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-accent2));
   border-radius: 1px;
 }
 
 .sectionLight .tabActive { color: var(--c-white); }
-.sectionLight .tabUnderline { background: var(--c-accent); }
+.sectionLight .tabUnderline { background: linear-gradient(90deg, var(--c-accent), var(--c-accent2)); }
 
 /* ── Body layout ── */
 .body {
   display: flex;
   align-items: center;
-  padding: 40px 0 16px;
+  padding: 46px 0 16px;
   gap: 0;
 }
 
 /* ── Label ── */
 .label {
   flex-shrink: 0;
-  width: 280px;
-  padding: 0 48px;
+  width: 320px;
+  padding: 0 var(--safe-x);
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+.labelEyebrow {
+  color: var(--c-accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
 .labelTitle {
   font-family: var(--font-display);
-  font-size: 36px;
-  letter-spacing: 0.04em;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   line-height: 1;
   color: #111827;
 }
@@ -133,15 +146,15 @@
 .card {
   flex-shrink: 0;
   width: 200px;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
-  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow), outline-color var(--transition);
 }
 
 .card:hover, .cardFocused {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  transform: translateY(-8px) scale(1.035);
+  box-shadow: 0 22px 46px rgba(0,0,0,0.38), 0 0 0 3px rgba(0,245,255,0.66);
   z-index: 2;
 }
 
@@ -150,6 +163,7 @@
   width: 200px;
   height: 290px;
   background: var(--c-surface2);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 
@@ -167,7 +181,9 @@
 .cardOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,31,191,0.26), transparent 46%),
+    rgba(7,4,13,0.62);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,8 +209,9 @@
 .playBtn {
   width: 44px;
   height: 44px;
-  background: var(--c-accent);
+  background: linear-gradient(135deg, var(--c-accent), #ff65d4);
   padding-left: 3px;
+  box-shadow: 0 0 28px rgba(255,31,191,0.46);
 }
 .playBtn:hover { transform: scale(1.1); }
 
@@ -212,8 +229,8 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  background: var(--c-accent);
-  color: #080a0f;
+  background: rgba(0,245,255,0.92);
+  color: #071019;
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -229,20 +246,22 @@
 .cardTitle {
   font-size: 15px;
   font-weight: 500;
-  color: #111827;
+  color: #1a1033;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.sectionLight .cardTitle { color: var(--c-white); }
+.sectionLight .cardTitle { color: var(--c-lavender); }
 
 .cardMeta {
   font-size: 13px;
-  color: #750137;
+  color: var(--c-accent);
   margin-top: 2px;
   font-weight: bold;
 }
+
+.sectionLight .cardMeta { color: var(--c-accent2); }
 
 /* ── Side dots ── */
 .sideDots {
@@ -280,7 +299,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: rgba(0,0,0,0.7);
+  background: rgba(7,4,13,0.78);
   border: none;
   color: white;
   font-size: 28px;
@@ -292,7 +311,12 @@
   cursor: pointer;
   border-radius: var(--radius);
   opacity: 0;
-  transition: opacity var(--transition);
+  border: 1px solid rgba(0,245,255,0.22);
+  transition: opacity var(--transition), color var(--transition), border-color var(--transition);
+}
+.scrollBtn:hover {
+  color: var(--c-accent2);
+  border-color: rgba(0,245,255,0.7);
 }
 
 .cardsWrapper:hover .scrollBtn { opacity: 1; }
@@ -312,10 +336,15 @@
 .navArrow {
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   color: #9ca3af;
   cursor: pointer;
-  padding: 4px 8px;
-  transition: color var(--transition);
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: color var(--transition), border-color var(--transition);
 }
-.navArrow:hover { color: #111827; }
+.navArrow:hover {
+  color: var(--c-accent);
+  border-color: rgba(255,31,191,0.36);
+}

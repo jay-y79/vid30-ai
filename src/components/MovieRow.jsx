@@ -2,25 +2,31 @@ import { useState, useRef } from 'preact/hooks'
 import { MOVIE_TABS } from '../data/movies'
 import styles from './MovieRow.module.css'
 
-function MovieCard({ movie, focused, onFocus }) {
+function MovieCard({ movie, focused, onFocus, onPlay }) {
   return (
     <div
       class={`${styles.card} ${focused ? styles.cardFocused : ''}`}
       onMouseEnter={onFocus}
       tabIndex={0}
       onFocus={onFocus}
+      onClick={() => onPlay?.(movie)}
+      data-focusable
+      data-focus-id={movie.id}
       role="button"
       aria-label={movie.title}
     >
       <div class={styles.cardImg}>
         <img src={movie.cover} alt={movie.title} loading="lazy" />
         <div class={styles.cardOverlay}>
-          <button class={styles.playBtn}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <button 
+            class={styles.playBtn} 
+            aria-label={`Regarder ${movie.title}`}
+            tabIndex={-1} // The parent card handles the focus
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
               <polygon points="5,3 19,12 5,21"/>
             </svg>
           </button>
-          {/* <button class={styles.addBtn}>+</button> */}
         </div>
         {movie.badge && (
           <span class={styles.badge}>{movie.badge}</span>
@@ -34,7 +40,7 @@ function MovieCard({ movie, focused, onFocus }) {
   )
 }
 
-export function MovieRow({ category, light }) {
+export function MovieRow({ category, light, onPlay }) {
   const [activeTab, setActiveTab] = useState(0)
   const [focusedId, setFocusedId] = useState(null)
   const rowRef = useRef(null)
@@ -46,13 +52,14 @@ export function MovieRow({ category, light }) {
 
   return (
     <section class={`${styles.section} ${light ? styles.sectionLight : ''}`}>
-      {/* Tab bar */}
       <div class={styles.tabBar}>
         {MOVIE_TABS.map((tab, i) => (
           <button
             key={tab}
             class={`${styles.tab} ${activeTab === i ? styles.tabActive : ''}`}
             onClick={() => setActiveTab(i)}
+            data-focusable
+            data-focus-id={`row-${category.id}-tab-${i}`}
           >
             {tab}
             {activeTab === i && <span class={styles.tabUnderline} />}
@@ -61,21 +68,22 @@ export function MovieRow({ category, light }) {
       </div>
 
       <div class={styles.body}>
-        {/* Left label */}
         <div class={styles.label}>
+          <span class={styles.labelEyebrow}>{category.product}</span>
           <h2 class={styles.labelTitle}>{category.label}</h2>
           <p class={styles.labelTagline}>{category.tagline}</p>
-          {/* <button class={styles.browseBtn}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/>
-            </svg>
-            VOIR PLUS
-          </button> */}
         </div>
 
-        {/* Cards + scroll buttons */}
         <div class={styles.cardsWrapper}>
-          <button class={`${styles.scrollBtn} ${styles.scrollLeft}`} onClick={() => scroll(-1)}>‹</button>
+          <button 
+            class={`${styles.scrollBtn} ${styles.scrollLeft}`} 
+            onClick={() => scroll(-1)} 
+            aria-label="Précédent"
+            data-focusable
+            data-focus-id={`row-${category.id}-scroll-left`}
+          >
+            ‹
+          </button>
 
           <div class={styles.cards} ref={rowRef}>
             {category.movies.map(m => (
@@ -84,14 +92,22 @@ export function MovieRow({ category, light }) {
                 movie={m}
                 focused={focusedId === m.id}
                 onFocus={() => setFocusedId(m.id)}
+                onPlay={onPlay}
               />
             ))}
           </div>
 
-          <button class={`${styles.scrollBtn} ${styles.scrollRight}`} onClick={() => scroll(1)}>›</button>
+          <button 
+            class={`${styles.scrollBtn} ${styles.scrollRight}`} 
+            onClick={() => scroll(1)} 
+            aria-label="Suivant"
+            data-focusable
+            data-focus-id={`row-${category.id}-scroll-right`}
+          >
+            ›
+          </button>
         </div>
 
-        {/* Side dots */}
         <div class={styles.sideDots}>
           <span class={styles.slideNum}>1</span>
           {[0,1,2,3].map(i => (
@@ -100,10 +116,25 @@ export function MovieRow({ category, light }) {
         </div>
       </div>
 
-      {/* Nav arrows bottom-right */}
       <div class={styles.navArrows}>
-        <button class={styles.navArrow} onClick={() => scroll(-1)}>←</button>
-        <button class={styles.navArrow} onClick={() => scroll(1)}>→</button>
+        <button 
+          class={styles.navArrow} 
+          onClick={() => scroll(-1)} 
+          aria-label="Précédent"
+          data-focusable
+          data-focus-id={`row-${category.id}-nav-left`}
+        >
+          ←
+        </button>
+        <button 
+          class={styles.navArrow} 
+          onClick={() => scroll(1)} 
+          aria-label="Suivant"
+          data-focusable
+          data-focus-id={`row-${category.id}-nav-right`}
+        >
+          →
+        </button>
       </div>
     </section>
   )
